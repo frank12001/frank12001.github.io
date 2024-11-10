@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tw">
+<head>
+<meta charset="utf-8">
+<title>參與「圓圓劍仙」內部測試</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+
+<!-- css -->
+<link href="css/interstitial-main.css" rel="stylesheet" />
+ 
+</head>
+<body>
+    <script>
+        // 定義不同平台的 URL
+        const urlAndroidWindows = "https://www.stealthycat.com/test";
+        const urlIOS = "https://apps.apple.com/tw/app/testflight/id899247664?platform=iphone";
+
+        // 判斷裝置平台並跳轉
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // 如果是 iOS 裝置
+            window.location.href = urlIOS;
+        } else {
+            // 其他情況，這裡可以選擇預設跳轉或顯示訊息
+            window.location.href = urlAndroidWindows;
+        }
+    </script>
+</body>
+</html>
