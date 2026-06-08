@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="tw">
+<html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<title>參與「大頭包小俠」遊戲測試</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart redirect to 大頭包小俠 on App Store or Google Play.">
+  <title>Opening Store | 大頭包小俠</title>
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    const urlAndroidWindows = "https://play.google.com/store/apps/details?id=com.touxiaomao.smallhead";
+    const urlIOS = "https://apps.apple.com/tw/app/%E5%A4%A7%E9%A0%AD%E5%8C%85%E5%B0%8F%E4%BF%A0/id6505068386";
 
-<!-- css -->
-<link href="css/interstitial-main.css" rel="stylesheet" />
- 
+    window.addEventListener("DOMContentLoaded", () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const target = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream ? urlIOS : urlAndroidWindows;
+      document.querySelector("[data-store-link]").href = target;
+      window.location.replace(target);
+    });
+  </script>
 </head>
 <body>
-    <script>
-        // 定義不同平台的 URL
-        const urlAndroidWindows = "https://play.google.com/store/apps/details?id=com.touxiaomao.smallhead";
-        const urlIOS = "https://apps.apple.com/tw/app/%E5%A4%A7%E9%A0%AD%E5%8C%85%E5%B0%8F%E4%BF%A0/id6505068386";
-
-        // 判斷裝置平台並跳轉
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-		if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // 如果是 iOS 裝置
-            window.location.href = urlIOS;
-        } else {
-            // 其他情況，這裡可以選擇預設跳轉或顯示訊息
-            window.location.href = urlAndroidWindows;
-        }
-    </script>
+  <main class="redirect">
+    <section class="redirect-panel">
+      <img src="img/icon.jpg" alt="">
+      <p class="eyebrow">Redirecting</p>
+      <h1>正在開啟商店</h1>
+      <p>如果沒有自動跳轉，請使用下方按鈕前往適合你裝置的商店頁面。</p>
+      <div class="actions">
+        <a class="button primary" data-store-link href="https://play.google.com/store/apps/details?id=com.touxiaomao.smallhead">Open Store</a>
+        <a class="button" href="index.html">Back Home</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
