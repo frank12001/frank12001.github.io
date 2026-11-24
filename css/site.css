@@ -99,8 +99,8 @@ img {
 .brand-mark img {
   width: 30px;
   height: 30px;
-  border-radius: 7px;
-  object-fit: cover;
+  border-radius: 0;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -255,7 +255,7 @@ h1 {
 .signal-card {
   position: absolute;
   left: 0;
-  bottom: 44px;
+  top: 96px;
   width: min(310px, 76vw);
   padding: 18px;
   border: 1px solid var(--line);
@@ -268,6 +268,34 @@ h1 {
 .signal-card b {
   display: block;
   margin-bottom: 10px;
+}
+
+.signal-card .status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: var(--mint);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.signal-card .status-line::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 4px rgba(93, 255, 179, 0.18);
+  content: "";
+}
+
+.signal-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .meter {
